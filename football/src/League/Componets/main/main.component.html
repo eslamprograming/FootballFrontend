@@ -1,5 +1,5 @@
 <br><br>
-<button type="button" class="btn btn-info">Add New League</button>
+<a href="/CreateLeague" type="button" class="btn btn-info">Add New League</a>
 <br><br>
 
 <table class="table table-hover">
@@ -17,32 +17,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>League Name</td>
-      <td>Session</td>
-      <td>Start Date</td>
-      <td>End Date</td>
-      <td><button type="button" class="btn btn-success">Details</button></td>
-      <td><button type="button" class="btn btn-primary">Edit</button></td>
-      <td><button type="button" class="btn btn-danger">Delete</button></td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>League Name</td>
-      <td>Session</td>
-      <td>Start Date</td>
-      <td>End Date</td>
-      <td><button type="button" class="btn btn-success">Details</button></td>
-      <td><button type="button" class="btn btn-primary">Edit</button></td>
-      <td><button type="button" class="btn btn-danger">Delete</button></td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>League Name</td>
-      <td>Session</td>
-      <td>Start Date</td>
-      <td>End Date</td>
+    <tr *ngFor="let item of responseobj.values">
+      <th scope="row"><img width="70px" height="45px" src="https://drive.google.com/uc?export=view&id=1uMwGbrSb0MiqI5fkeVXE8RBHyxaziJTR" alt="Image from Google Drive"></th>
+      <td>{{item.leagueName}}</td>
+      <td>{{item.season}}</td>
+      <td>{{item.startDate}}</td>
+      <td>{{item.endDate}}</td>
       <td><button type="button" class="btn btn-success">Details</button></td>
       <td><button type="button" class="btn btn-primary">Edit</button></td>
       <td><button type="button" class="btn btn-danger">Delete</button></td>

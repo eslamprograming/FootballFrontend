@@ -1,0 +1,59 @@
+<div class="container" >
+  <div class="text">
+     Match Form
+  </div>
+  <form (ngsubmit)="onSubmit">
+     <div class="form-row">
+        <div class="input-data">
+           <input type="number" name="HomeTeamID" [(ngModel)]="model.HomeTeamID"  required>
+           <div class="underline"></div>
+           <label for="">HomeTeamID</label>
+        </div>
+        <div class="input-data">
+          <input type="number" name="AwayTeamID" [(ngModel)]="model.AwayTeamID"  required>
+          <div class="underline"></div>
+          <label for="">AwayTeamID</label>
+       </div>
+     </div>
+     
+     <div class="form-row">
+      <div class="input-data">
+         <input type="datetime-local" name="MatchDate"[(ngModel)]="model.MatchDate"  required>
+         <div class="underline"></div>
+         <label for="">MatchDate</label>
+      </div>
+      <div class="input-data">
+          <input type="text" name="Location" [(ngModel)]="model.Location"  required>
+          <div class="underline"></div>
+          <label for=""> Location</label>
+       </div>
+   </div>
+   <div class="form-row">
+    <div class="input-data">
+       <input type="text" name="RefereeName" [(ngModel)]="model.RefereeName"  required>
+       <div class="underline"></div>
+       <label for="">RefereeName</label>
+    </div>
+    <div class="input-data">
+        <input type="number" name="LeagueID" [(ngModel)]="model.LeagueID" required>
+        <div class="underline"></div>
+        <label for=""> LeagueID</label>
+     </div>
+ </div>
+ <div class="form-row">
+  
+  <div class="input-data">
+      <input type="number" name="VenueId" [(ngModel)]="model.VenueId"  required>
+      <div class="underline"></div>
+      <label for=""> VenueId</label>
+   </div>
+</div>
+        <br />
+        <div class="form-row submit-btn">
+           <div class="input-data">
+              <div class="inner"></div>
+              <input type="submit" value="submit">
+           </div>
+        </div>
+        </form>
+  </div>

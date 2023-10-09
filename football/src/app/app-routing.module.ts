@@ -11,6 +11,12 @@ import { MainTeamComponent } from 'src/team/Compontes/MainTeam/MainTeam.componen
 import { MainPlayerComponent } from 'src/Player/Conpontes/MainPlayer/MainPlayer.component';
 import { MainStandingsComponent } from 'src/strandings/Componets/MainStandings/MainStandings.component';
 import { MainVenueComponent } from 'src/Venue/Compontes/MainVenue/MainVenue.component';
+import { CreateLeagueComponent } from 'src/League/Componets/CreateLeague/CreateLeague.component';
+import { CreateTeamComponent } from 'src/team/Compontes/CreateTeam/CreateTeam.component';
+import { CreatePlayerComponent } from 'src/Player/Conpontes/CreatePlayer/CreatePlayer.component';
+import { CreatMatchComponent } from 'src/Match/Compontes/CreatMatch/CreatMatch.component';
+import { CreateVenueComponent } from 'src/Venue/Compontes/CreateVenue/CreateVenue.component';
+
 
 const routes: Routes = [
   {path:'',component: LayoutComponent,children:[
@@ -21,6 +27,13 @@ const routes: Routes = [
     {path:'Player',component:MainPlayerComponent},
     {path:'Standings',component:MainStandingsComponent},
     {path:'Venue',component:MainVenueComponent},
+    {path:'CreateTeam',component:CreateTeamComponent},
+    {path:'CreateLeague',component:CreateLeagueComponent},
+    {path:'CreatePlayer',component:CreatePlayerComponent},
+    {path:'CreateMatch',component:CreatMatchComponent},
+    {path:'CreateVenue',component:CreateVenueComponent},
+    
+
 
   ],},
   {path:'Register',component:RegisterComponent},

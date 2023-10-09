@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LeagueService } from 'src/League/Services/League.service';
+import { Response } from 'src/app/ModelView/Response';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  responseobj:Response=new Response();
+
+  constructor(private service:LeagueService,private router:Router) { }
 
   ngOnInit() {
+    this.getAll();
   }
+  getAll(){
+    this.service.GetAll(1).subscribe(reponse=>{
+      this.responseobj=reponse;
+
+      if(this.responseobj.success===true){
+        
+      }
+      else{
+        alert(this.responseobj.message);
+      }
+      console.log(reponse);
+
+    },
+    error=>{
+      alert("error this error is "+error.Message);
+    }
+    )
+  }
+
 
 }

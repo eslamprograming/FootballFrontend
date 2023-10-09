@@ -1,5 +1,25 @@
 <br><br>
-<button type="button" class="btn btn-info">Add New Player</button>
+<a href="/CreatePlayer" type="button" class="btn btn-info">Add New Player</a>
+<br><br>
+<div class="form-row">
+  <div class="input-data">
+    <label for="LeagueId">League</label>
+    <select style="width: 35%;margin-left: 5%;" name="LeagueId" [(ngModel)]="selectedLeague" (change)="Team()" required>
+      <option value="">--Select League--</option>
+      <option *ngFor="let league of responseobj.values" [value]="league.leagueID">{{ league.leagueName }}</option>
+    </select>
+    <div class="underline"></div>
+  </div>
+  <br><br>
+  <div class="input-data">
+    <label for="CurrentTeamID">Current Team</label>
+    <select style="width: 33%; margin-left: 1%;" name="CurrentTeamID" (change)="AllPlayer()"
+     [(ngModel)]="selectedTeam" required>
+      <option value="">--Select Team--</option>
+      <option *ngFor="let team of teams" [value]="team.teamID">{{ team.teamName }}</option>
+    </select>
+  </div>
+</div>
 <br><br>
 
 <table class="table table-hover">
@@ -11,7 +31,6 @@
       <th scope="col">DateOfBirth</th>
       <th scope="col">Nationality</th>
       <th scope="col">Position</th>
-      <th scope="col">team</th>
       <th scope="col">Details</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
@@ -19,41 +38,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>first Name</td>
-      <td>Last Name</td>
-      <td>DateOfBirth</td>
-      <td>Nationality</td>
-      <td>Position</td>
-      <td>Team</td>
+    <tr *ngFor="let item of response2.values">
+      <th scope="row">{{item.playerID}}</th>
+      <td>{{item.firstName}}</td>
+      <td>{{item.lastName}}</td>
+      <td>{{item.birthDate}}</td>
+      <td>{{item.nationality}}</td>
+      <td>{{item.position}}</td>
       <td><button type="button" class="btn btn-success">Details</button></td>
       <td><button type="button" class="btn btn-primary">Edit</button></td>
       <td><button type="button" class="btn btn-danger">Delete</button></td>
     </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>first Name</td>
-      <td>Last Name</td>
-      <td>DateOfBirth</td>
-      <td>Nationality</td>
-      <td>Position</td>
-      <td>Team</td>
-      <td><button type="button" class="btn btn-success">Details</button></td>
-      <td><button type="button" class="btn btn-primary">Edit</button></td>
-      <td><button type="button" class="btn btn-danger">Delete</button></td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>first Name</td>
-      <td>Last Name</td>
-      <td>DateOfBirth</td>
-      <td>Nationality</td>
-      <td>Position</td>
-      <td>Team</td>
-      <td><button type="button" class="btn btn-success">Details</button></td>
-      <td><button type="button" class="btn btn-primary">Edit</button></td>
-      <td><button type="button" class="btn btn-danger">Delete</button></td>
-    </tr>
+    
   </tbody>
 </table>

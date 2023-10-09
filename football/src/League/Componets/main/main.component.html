@@ -18,7 +18,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of responseobj.values">
-      <th scope="row"><img width="70px" height="45px" src="https://drive.google.com/uc?export=view&id=1uMwGbrSb0MiqI5fkeVXE8RBHyxaziJTR" alt="Image from Google Drive"></th>
+      <th scope="row"><img width="70px" height="45px" src="{{item.leagueLogo}}" alt="Image from Google Drive"></th>
       <td>{{item.leagueName}}</td>
       <td>{{item.season}}</td>
       <td>{{item.startDate}}</td>

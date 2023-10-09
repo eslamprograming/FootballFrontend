@@ -35,6 +35,15 @@ export class MainComponent implements OnInit {
     }
     )
   }
+  getImageUrl(googleDriveLink: any): string {
+    const fileId = this.extractFileId(googleDriveLink);
+    return `https://drive.google.com/uc?id=${fileId}`;
+  }
 
+  private extractFileId(link: string): string {
+    const regex = /\/d\/([^/]+)\//;
+    const match = link.match(regex);
+    return match ? match[1] : '';
+  }
 
 }

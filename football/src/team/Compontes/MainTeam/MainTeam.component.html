@@ -29,7 +29,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let team of teams">
-      <th scope="row">{{ team.teamID }}</th>
+      <th scope="row"><img width="70px" height="45px" src="{{team.teamLogo}}" alt="Image from Google Drive"></th>
       <td>{{ team.teamName }}</td>
       <td>{{ team.foundedYear }}</td>
       <td>{{ team.homeCity }}</td>

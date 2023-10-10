@@ -35,9 +35,9 @@
       <td>{{ team.homeCity }}</td>
       <td>{{ team.homeStadium }}</td>
       <td>{{ team.coachName }}</td>
-      <td><button type="button" class="btn btn-success" (click)="viewDetails(team)">Details</button></td>
-      <td><button type="button" class="btn btn-primary" (click)="editTeam(team)">Edit</button></td>
-      <td><button type="button" class="btn btn-danger" (click)="deleteTeam(team)">Delete</button></td>
+      <td><button type="button" class="btn btn-success" (click)="Details(team.teamID,'api/Team/GetTeam?TeamId=')">Details</button></td>
+      <td><button type="button" class="btn btn-primary" (click)="Edit()">Edit</button></td>
+      <td><button type="button" class="btn btn-danger" (click)="Delete(team.teamID,'api/Team/DeleteTeam?TeamId=')">Delete</button></td>
     </tr>
   </tbody>
 </table>

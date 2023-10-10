@@ -31,6 +31,7 @@ export class CreateTeamComponent implements OnInit {
   }
 
   onSubmit(formData: any) {
+    this.router.navigate(['/Spaner']);
     const objToSend = new FormData();
     objToSend.append('TeamName', formData.TeamName);
     if (this.fileToUpload != null) {
@@ -45,12 +46,13 @@ export class CreateTeamComponent implements OnInit {
 
     this.http.post<any>(`${environment.apiUrl}api/Team/AddNewTeam`, objToSend)
       .subscribe(res => {
-        alert("succes");
+      this.router.navigate(['/CreateTeam']);
         console.log(res);
       },
       error=>{
-        alert("error");
-        console.log(error);
+      this.router.navigate(['/CreateTeam']);
+      console.log(error);
+      alert("error");
       }
       );
   }

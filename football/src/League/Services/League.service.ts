@@ -19,13 +19,13 @@ postData(leagueVM: any): Observable<any> {
 
   return this.http.post<any>(`${environment.apiUrl}api/League/AddNewLeague`,leagueVM,httpOptions);
 }
-DeletData(Id:Number):Observable<any>{
+DeletData(Id:Number,endPoint:any):Observable<any>{
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
-  return this.http.delete<any>(`${environment.apiUrl}api/League/DeleteLeague/${Id}`,httpOptions)
+  return this.http.delete<any>(`${environment.apiUrl}${endPoint}${Id}`);
 }
 GetAll(group:Number):Observable<any>{
   const httpOptions = {
@@ -35,13 +35,14 @@ GetAll(group:Number):Observable<any>{
   };
   return this.http.get<any>(`${environment.apiUrl}api/League/GetAllLeague?GroupCount=${group}`,httpOptions);
 }
-GetLeague(Id:Number):Observable<any>{
+GetLeague(Id:Number,endPoint:any):Observable<any>{
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
-  return this.http.get<any>(`${environment.apiUrl}api/League/Get/${Id}`,httpOptions)
+  alert(`${environment.apiUrl}${endPoint}${Id}`)
+  return this.http.get<any>(`${environment.apiUrl}${endPoint}${Id}`,httpOptions);
 }
 putData(userData: any,Id:Number): Observable<any> {
   const httpOptions = {

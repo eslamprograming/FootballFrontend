@@ -46,18 +46,31 @@ export class MainTeamComponent implements OnInit {
   }
   
 
-  viewDetails(team: any) {
-    // Implement the logic to view details of the selected team.
-    console.log("View details of the team:", team);
+  Details(Id:Number,endPoints:any){
+    this.service.GetLeague(Id,endPoints).subscribe(
+      res=>{
+        alert("succes");
+      },
+      error=>{
+        alert("error");
+        console.log(error.message);
+      }
+    )
   }
+  Edit(){
 
-  editTeam(team: any) {
-    // Implement the logic to edit the selected team.
-    console.log("Edit team:", team);
   }
-
-  deleteTeam(team: any) {
-    // Implement the logic to delete the selected team.
-    console.log("Delete team:", team);
+  Delete(Id:any,endPoints:any){
+    var result=confirm("Do You Want To Delete");
+    if(result){
+      this.service.DeletData(Id,endPoints).subscribe(
+        res=>{
+          window.location.reload();
+        },
+        error=>{
+          alert("error");
+        }
+      )
+    }
   }
 }

@@ -22,6 +22,7 @@ export class CreateLeagueComponent implements OnInit {
   }
 
   onSubmit(formData: any) {
+    this.router.navigate(['/Spaner']);
     const objToSend = new FormData();
     objToSend.append('LeagueName', formData.LeagueName);
     if (this.fileToUpload != null) {
@@ -43,6 +44,7 @@ export class CreateLeagueComponent implements OnInit {
       },
       error=>{
         alert("error : "+error.Message);
+        this.router.navigate(['/CreateLeague']);
       }
       
       );

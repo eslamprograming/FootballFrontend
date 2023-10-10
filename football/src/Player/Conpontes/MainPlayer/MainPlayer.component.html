@@ -45,9 +45,9 @@
       <td>{{item.dateOfBirth}}</td>
       <td>{{item.nationality}}</td>
       <td>{{item.position}}</td>
-      <td><button type="button" class="btn btn-success">Details</button></td>
-      <td><button type="button" class="btn btn-primary">Edit</button></td>
-      <td><button type="button" class="btn btn-danger">Delete</button></td>
+      <td><button type="button" class="btn btn-success"(click)="Details(item.playerID,'api/Player/GetPlayeInfo?PlayerId=')">Details</button></td>
+      <td><button type="button" class="btn btn-primary"(click)="Edit()">Edit</button></td>
+      <td><button type="button" class="btn btn-danger"(click)="Delete(item.playerID,'api/Player/DeletePlayer?PlayerId=')">Delete</button></td>
     </tr>
     
   </tbody>

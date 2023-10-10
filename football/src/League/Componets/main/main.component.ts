@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LeagueService } from 'src/League/Services/League.service';
 import { Response } from 'src/app/ModelView/Response';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-main',
@@ -12,7 +14,7 @@ export class MainComponent implements OnInit {
 
   responseobj:Response=new Response();
 
-  constructor(private service:LeagueService,private router:Router) { }
+  constructor(private service:LeagueService,private location:Location,private router:Router) { }
 
   ngOnInit() {
     this.getAll();
@@ -35,15 +37,32 @@ export class MainComponent implements OnInit {
     }
     )
   }
-  getImageUrl(googleDriveLink: any): string {
-    const fileId = this.extractFileId(googleDriveLink);
-    return `https://drive.google.com/uc?id=${fileId}`;
+  Details(Id:Number,endPoints:any){
+    alert(Id);
+    this.service.GetLeague(Id,endPoints).subscribe(
+      res=>{
+        alert("succes");
+      },
+      error=>{
+        alert("error");
+        console.log(error.message);
+      }
+    )
   }
+  Edit(){
 
-  private extractFileId(link: string): string {
-    const regex = /\/d\/([^/]+)\//;
-    const match = link.match(regex);
-    return match ? match[1] : '';
   }
-
+  deleteResponse :Response=new Response();
+  Delete(Id:any,endPoint:any){
+    var result=confirm("Do You Want to Delete This League");
+    if(result){
+    this.service.DeletData(Id,endPoint).subscribe(
+      res=>{
+          window.location.reload();
+      },
+      error=>{
+        alert(error.Message);
+      }
+    )
+  }}
 }

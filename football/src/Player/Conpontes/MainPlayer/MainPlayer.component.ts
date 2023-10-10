@@ -64,6 +64,32 @@ export class MainPlayerComponent implements OnInit {
       }
     )
   }
+  Details(Id:Number,endPoints:any){
+    this.service.GetLeague(Id,endPoints).subscribe(
+      res=>{
+        alert("succes");
+      },
+      error=>{
+        alert("error");
+        console.log(error.message);
+      }
+    )
+  }
+  Edit(){
 
+  }
+  Delete(Id:any,endPoints:any){
+    var result=confirm("Do You Want To Delete");
+    if(result){
+      this.service.DeletData(Id,endPoints).subscribe(
+        res=>{
+          window.location.reload();
+        },
+        error=>{
+          alert("error");
+        }
+      )
+    }
+  }
 
 }

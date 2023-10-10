@@ -1,7 +1,6 @@
 <br><br>
 <a href="/CreateLeague" type="button" class="btn btn-info">Add New League</a>
 <br><br>
-
 <table class="table table-hover">
   <thead>
     <tr>
@@ -23,9 +22,9 @@
       <td>{{item.season}}</td>
       <td>{{item.startDate}}</td>
       <td>{{item.endDate}}</td>
-      <td><button type="button" class="btn btn-success">Details</button></td>
-      <td><button type="button" class="btn btn-primary">Edit</button></td>
-      <td><button type="button" class="btn btn-danger">Delete</button></td>
+      <td><button type="button" class="btn btn-success" (click)="Details(item.leagueID,'api/League/GetLeague?LeagueId=')">Details</button></td>
+      <td><button type="button" class="btn btn-primary" (click)="Edit()">Edit</button></td>
+      <td><button type="button" class="btn btn-danger" (click)="Delete(item.leagueID,'api/League/DeleteLeague?LeagueId=')">Delete</button></td>
     </tr>
   </tbody>
 </table>

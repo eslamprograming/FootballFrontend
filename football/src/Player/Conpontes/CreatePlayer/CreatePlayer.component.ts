@@ -60,6 +60,7 @@ export class CreatePlayerComponent implements OnInit {
   }
 
   onSubmit(formData: any) {
+    this.router.navigate(['/Spaner']);
     const objToSend = new FormData();
     objToSend.append('FirstName', formData.FirstName);
     objToSend.append('LastName', formData.LastName);
@@ -76,14 +77,13 @@ export class CreatePlayerComponent implements OnInit {
 
     this.http.post<any>(`${environment.apiUrl}api/Player/AddNewPlayer`, objToSend)
       .subscribe(res => {
-        alert('success');
         this.router.navigate(['/Player'])
         console.log(res);
         // Additional logic after successful submission
       },
       error => {
+        this.router.navigate(['/CreatePlayer'])        
         alert(`Error ${error.status}: ${error.message}`);
-        console.error(`Error ${error.status}: ${error.message}`);
         // Handle error if needed
       }
     );

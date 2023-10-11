@@ -17,6 +17,7 @@ import { CreatePlayerComponent } from 'src/Player/Conpontes/CreatePlayer/CreateP
 import { CreatMatchComponent } from 'src/Match/Compontes/CreatMatch/CreatMatch.component';
 import { CreateVenueComponent } from 'src/Venue/Compontes/CreateVenue/CreateVenue.component';
 import { SpanerComponent } from 'src/Sheard/Compontes/spaner/spaner.component';
+import { UpdateComponent } from 'src/Venue/Compontes/Update/Update.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,8 @@ const routes: Routes = [
     {path:'CreateMatch',component:CreatMatchComponent},
     {path:'CreateVenue',component:CreateVenueComponent},
     {path:'Spaner',component:SpanerComponent},
+    {path:'UpdateVenue',component:UpdateComponent},
+
   ],},
   {path:'Register',component:RegisterComponent},
   {path:'Login',component:LoginComponent},

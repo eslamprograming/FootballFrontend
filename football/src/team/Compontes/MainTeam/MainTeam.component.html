@@ -4,7 +4,7 @@
 <a href="/CreateTeam" type="button" class="btn btn-info">Add New Team</a>
 
   <!-- <label style="margin-left: 30%;">League : </label> -->
-  <select style="width: 30%;margin-left: 50%;" name="league" (change)="leagueTeam()" [(ngModel)]="selectedLeague" required>
+  <select style="width: 30%;margin-left: 40%;position: fixed;" name="league" (change)="leagueTeam()" [(ngModel)]="selectedLeague" required>
     <option  selected value="">--Select League--</option>
     <option *ngFor="let league of responseobj.values" [value]="league.leagueID">{{ league.leagueName }}</option>
   </select>
@@ -28,8 +28,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let team of teams">
-      <th scope="row"><img width="70px" height="45px" src="{{team.teamLogo}}" alt="Image from Google Drive"></th>
+    <tr *ngFor="let team of teams" >
+      <th  scope="row"><img width="70px" height="45px" src="{{team.teamLogo}}" alt="Image from Google Drive"></th>
       <td>{{ team.teamName }}</td>
       <td>{{ team.foundedYear }}</td>
       <td>{{ team.homeCity }}</td>

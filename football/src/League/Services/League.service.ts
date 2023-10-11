@@ -9,15 +9,13 @@ import { environment } from 'src/environments/environment';
 export class LeagueService {
 
 constructor(private http:HttpClient) { }
-postData(leagueVM: any): Observable<any> {
+postData(leagueVM: any,endPoint:any): Observable<any> {
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
-  alert("URL");
-
-  return this.http.post<any>(`${environment.apiUrl}api/League/AddNewLeague`,leagueVM,httpOptions);
+  return this.http.post<any>(`${environment.apiUrl}${endPoint}`,leagueVM,httpOptions);
 }
 DeletData(Id:Number,endPoint:any):Observable<any>{
   const httpOptions = {
@@ -27,13 +25,13 @@ DeletData(Id:Number,endPoint:any):Observable<any>{
   };
   return this.http.delete<any>(`${environment.apiUrl}${endPoint}${Id}`);
 }
-GetAll(group:Number):Observable<any>{
+GetAll(group:Number,endPoint:any):Observable<any>{
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
-  return this.http.get<any>(`${environment.apiUrl}api/League/GetAllLeague?GroupCount=${group}`,httpOptions);
+  return this.http.get<any>(`${environment.apiUrl}${endPoint}${group}`,httpOptions);
 }
 GetLeague(Id:Number,endPoint:any):Observable<any>{
   const httpOptions = {
@@ -41,16 +39,16 @@ GetLeague(Id:Number,endPoint:any):Observable<any>{
       'Content-Type': 'application/json'
     })
   };
-  alert(`${environment.apiUrl}${endPoint}${Id}`)
   return this.http.get<any>(`${environment.apiUrl}${endPoint}${Id}`,httpOptions);
 }
-putData(userData: any,Id:Number): Observable<any> {
+putData(userData: any,Id:Number,endPoint:any): Observable<any> {
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
-  return this.http.put<any>(`${environment.apiUrl}api/League/UpdateLeague${Id}`, userData, httpOptions);
+  alert(`${environment.apiUrl}${endPoint}${Id}`);
+  return this.http.put<any>(`${environment.apiUrl}${endPoint}${Id}`, userData, httpOptions);
 }
 
 }

@@ -20,7 +20,7 @@ export class MainTeamComponent implements OnInit {
   constructor(private http: HttpClient, private service: LeagueService) { }
 
   ngOnInit() {
-    this.service.GetAll(1).subscribe(
+    this.service.GetAll(1,'api/League/GetAllLeague?GroupCount=').subscribe(
       (res) => {
         this.responseobj = res;
       },

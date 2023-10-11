@@ -16,7 +16,7 @@ export class CreateTeamComponent implements OnInit {
   responseobj:Response=new Response();
 
   ngOnInit() {
-    this.service.GetAll(1).subscribe(res=>{
+    this.service.GetAll(1,'api/League/GetAllLeague?GroupCount=').subscribe(res=>{
       this.responseobj=res;
     },
     error=>{

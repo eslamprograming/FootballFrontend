@@ -1,30 +1,33 @@
-<br><br>
+
+<div style="background-color: rgb(174, 217, 224);position:absolute;width: 80%;padding: 10px;">
+
+
 <a href="/CreatePlayer" type="button" class="btn btn-info">Add New Player</a>
-<br><br>
-<div class="form-row">
-  <div class="input-data">
-    <label for="LeagueId">League</label>
-    <select style="width: 35%;margin-left: 5%;" name="LeagueId" [(ngModel)]="selectedLeague" (change)="Team()" required>
-      <option value="">--Select League--</option>
+
+<div style="margin-left: 155px; display: inline;" >
+
+  <div  style="display:inline;">
+    <label for="LeagueId" style="width: 1%;">League</label>
+    <select style="width: 20%;margin-left: 5%;" name="LeagueId" [(ngModel)]="selectedLeague" (change)="Team()" required>
+      <option selected="--Select League--" value="">--Select League--</option>
       <option *ngFor="let league of responseobj.values" [value]="league.leagueID">{{ league.leagueName }}</option>
     </select>
-    <div class="underline"></div>
   </div>
-  <br><br>
-  <div class="input-data">
-    <label for="CurrentTeamID">Current Team</label>
-    <select style="width: 33%; margin-left: 1%;" name="CurrentTeamID" (change)="AllPlayer()"
+  
+  <div  style="display: inline;">
+    <label for="CurrentTeamID" style="width: 1%;margin-left: 10%;"> Team</label>
+    <select style="width: 20%;margin-left: 5%;" name="CurrentTeamID" (change)="AllPlayer()"
      [(ngModel)]="selectedTeam" required>
       <option value="">--Select Team--</option>
       <option *ngFor="let team of teams" [value]="team.teamID">{{ team.teamName }}</option>
     </select>
   </div>
 </div>
-<br><br>
-
-<table class="table table-hover">
+</div>
+<div style="margin-top: 5%;position:absolute;width: 80%;">
+<table class="table table-hover" >
   <thead>
-    <tr>
+    <tr >
       <th scope="col">#</th>
       <th scope="col">FirstName </th>
       <th scope="col">LastName</th>
@@ -37,7 +40,7 @@
 
     </tr>
   </thead>
-  <tbody>
+  <tbody >
     <tr *ngFor="let item of response2.values">
       <th ><img width="70px" height="45px" src="{{item.playerPhoto}}" alt="Image from Google Drive"></th>
       <td>{{item.firstName}}</td>
@@ -45,10 +48,11 @@
       <td>{{item.dateOfBirth}}</td>
       <td>{{item.nationality}}</td>
       <td>{{item.position}}</td>
-      <td><button type="button" class="btn btn-success"(click)="Details(item.playerID,'api/Player/GetPlayeInfo?PlayerId=')">Details</button></td>
-      <td><button type="button" class="btn btn-primary"(click)="Edit()">Edit</button></td>
+      <td><a type="button" class="btn btn-success"(click)="Details(item.playerID,'api/Player/GetPlayeInfo?PlayerId=')">Details</a></td>
+      <td><a type="button" class="btn btn-primary"(click)="Edit()">Edit</a></td>
       <td><button type="button" class="btn btn-danger"(click)="Delete(item.playerID,'api/Player/DeletePlayer?PlayerId=')">Delete</button></td>
     </tr>
-    
+   
   </tbody>
 </table>
+</div>

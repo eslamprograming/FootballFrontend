@@ -26,7 +26,7 @@ export class CreatePlayerComponent implements OnInit {
   }
 
   fetchLeagueData() {
-    this.service.GetAll(1).subscribe(
+    this.service.GetAll(1,'api/League/GetAllLeague?GroupCount=').subscribe(
       (res: Response) => {
         console.log('League data received:', res);
         this.responseobj = res;

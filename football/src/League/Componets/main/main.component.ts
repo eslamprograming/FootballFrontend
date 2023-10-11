@@ -20,11 +20,12 @@ export class MainComponent implements OnInit {
     this.getAll();
   }
   getAll(){
-    this.service.GetAll(1).subscribe(reponse=>{
-      this.responseobj=reponse;
+    this.service.GetAll(1,'api/League/GetAllLeague?GroupCount=').subscribe(reponse=>{
+    this.router.navigate(['/Spaner']);
+    this.responseobj=reponse; 
 
       if(this.responseobj.success===true){
-        
+        this.router.navigate(['/League']);
       }
       else{
         alert(this.responseobj.message);

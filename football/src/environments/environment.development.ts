@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-  apiUrl: 'http://footballmatch.somee.com/'
+  apiUrl: 'https://localhost:7133/'
 };

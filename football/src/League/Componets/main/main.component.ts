@@ -50,8 +50,9 @@ export class MainComponent implements OnInit {
       }
     )
   }
-  Edit(){
-
+  Edit(item:any){
+    localStorage.setItem("League",JSON.stringify(item));
+    this.router.navigate(['/UpdateLeague']);
   }
   deleteResponse :Response=new Response();
   Delete(Id:any,endPoint:any){

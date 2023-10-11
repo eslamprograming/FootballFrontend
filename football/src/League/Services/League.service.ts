@@ -47,7 +47,6 @@ putData(userData: any,Id:Number,endPoint:any): Observable<any> {
       'Content-Type': 'application/json'
     })
   };
-  alert(`${environment.apiUrl}${endPoint}${Id}`);
   return this.http.put<any>(`${environment.apiUrl}${endPoint}${Id}`, userData, httpOptions);
 }
 

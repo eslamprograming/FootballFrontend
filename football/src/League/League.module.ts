@@ -8,13 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateLeagueComponent } from './Componets/CreateLeague/CreateLeague.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { SheardModule } from 'src/Sheard/Sheard.module';
+import { LeagueUpdateComponent } from './Componets/LeagueUpdate/LeagueUpdate.component';
 
 
 @NgModule({
   imports: [
     BrowserModule,CommonModule,FormsModule,RouterModule,HttpClientModule,SheardModule
   ],
-  declarations: [LeagueComponent,MainComponent,CreateLeagueComponent],
-  exports:[MainComponent,CreateLeagueComponent]
+  declarations: [LeagueComponent,MainComponent,CreateLeagueComponent,LeagueUpdateComponent],
+  exports:[MainComponent,CreateLeagueComponent,LeagueUpdateComponent]
 })
 export class LeagueModule { }

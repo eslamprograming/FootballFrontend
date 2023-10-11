@@ -23,7 +23,7 @@
       <td>{{item.startDate}}</td>
       <td>{{item.endDate}}</td>
       <td><a type="button" class="btn btn-success" (click)="Details(item.leagueID,'api/League/GetLeague?LeagueId=')">Details</a></td>
-      <td><a type="button" class="btn btn-primary" (click)="Edit()">Edit</a></td>
+      <td><a type="button" class="btn btn-primary" (click)="Edit(item)">Edit</a></td>
       <td><button type="button" class="btn btn-danger" (click)="Delete(item.leagueID,'api/League/DeleteLeague?LeagueId=')">Delete</button></td>
     </tr>
   </tbody>

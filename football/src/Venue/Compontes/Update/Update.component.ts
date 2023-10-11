@@ -31,17 +31,18 @@ export class UpdateComponent implements OnInit {
   }
 
   ngSubmit() {
+    this.router.navigate(['Spaner']);
     this.model2.capacity = this.model.capacity;
     this.model2.contactInfo = this.model.contactInfo;
     this.model2.location = this.model.location;
     this.model2.venueName = this.model.venueName;
-    alert(this.model2.venueName);
-
-    this.service.putData(this.model2, Number(this.model.venueID), 'api/Venue/UpdateVenue?VenueId=')
+    var Id=Number(this.model.venueID);
+    this.service.putData(this.model2,Id,'api/Venue/UpdateVenue?VenueId=')
       .subscribe(res => {
-        alert("success");
+        this.router.navigate(['/Venue']);
       }, error => {
         alert("error");
+        this.router.navigate(['/CreateVenue']);
       });
   }
 }

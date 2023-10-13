@@ -11,6 +11,7 @@ import { PlayerModule } from 'src/Player/Player.module';
 import { MatchModule } from 'src/Match/Match.module';
 import { VenueModule } from 'src/Venue/Venue.module';
 import { FormsModule } from '@angular/forms';
+import { StrandingsModule } from 'src/strandings/strandings.module';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { FormsModule } from '@angular/forms';
     imports: [
         BrowserModule,
         AppRoutingModule,FormsModule,RouterModule,
-        SheardModule,RouterModule,LeagueModule,TeamModule,PlayerModule,MatchModule,VenueModule
+        SheardModule,RouterModule,LeagueModule,TeamModule,PlayerModule,MatchModule,VenueModule,StrandingsModule
     ]
 })
 export class AppModule { }

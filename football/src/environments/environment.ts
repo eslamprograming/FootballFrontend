@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-  apiUrl: 'http://footballmatch.somee.com/'
+  apiUrl: 'https://footballmatch.somee.com/'
 };

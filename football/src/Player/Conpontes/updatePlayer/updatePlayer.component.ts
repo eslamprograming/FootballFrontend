@@ -73,7 +73,6 @@ export class UpdatePlayerComponent implements OnInit {
   }
 
   onSubmit(formData: any) {
-    alert("submit");
     this.router.navigate(['/Spaner']);
     const objToSend = new FormData();
     objToSend.append('FirstName', formData.FirstName);

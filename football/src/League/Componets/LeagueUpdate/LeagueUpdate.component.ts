@@ -27,8 +27,8 @@ export class LeagueUpdateComponent implements OnInit {
         this.model2 = JSON.parse(storedData);
         this.model.LeagueName = this.model2.leagueName;
         this.model.Season = this.model2.season;
-        this.model.StartDate = this.model2.startDate.Date;
-        this.model.EndDate = this.model2.endDate.Date;
+        this.model.StartDate = this.model2.startDate;
+        this.model.EndDate = this.model2.endDate;
       } else {
         console.log('Key "Venue" not found in localStorage');
       }
@@ -43,8 +43,6 @@ export class LeagueUpdateComponent implements OnInit {
 
    onSubmit(formData: any) {
     
-      
-alert("submit");
       const objToSend = new FormData();
       objToSend.append('LeagueName', formData.LeagueName);
       
@@ -57,7 +55,6 @@ alert("submit");
       objToSend.append('EndDate', formData.EndDate);
 
       const leagueId = parseInt(this.model2.leagueID);
-      alert(leagueId);
 
        this.http.put<any>(`${environment.apiUrl}api/League/UpdateLeague?LeagueId=${leagueId}`, objToSend)
        .subscribe(response=>{

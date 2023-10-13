@@ -19,6 +19,9 @@ import { CreateVenueComponent } from 'src/Venue/Compontes/CreateVenue/CreateVenu
 import { SpanerComponent } from 'src/Sheard/Compontes/spaner/spaner.component';
 import { UpdateComponent } from 'src/Venue/Compontes/Update/Update.component';
 import { LeagueUpdateComponent } from 'src/League/Componets/LeagueUpdate/LeagueUpdate.component';
+import { UpdatePlayerComponent } from 'src/Player/Conpontes/updatePlayer/updatePlayer.component';
+import { UpdateTeamComponent } from 'src/team/Compontes/UpdateTeam/UpdateTeam.component';
+import { UpdateMatchComponent } from 'src/Match/Compontes/UpdateMatch/UpdateMatch.component';
 
 
 const routes: Routes = [
@@ -38,8 +41,10 @@ const routes: Routes = [
     {path:'Spaner',component:SpanerComponent},
     {path:'UpdateVenue',component:UpdateComponent},
     {path:'UpdateLeague',component:LeagueUpdateComponent},
-
-
+    {path:'UpdatePlayer',component:UpdatePlayerComponent},
+    {path:'UpdateTeam',component:UpdateTeamComponent},
+    {path:'UpdateMatch',component:UpdateMatchComponent},
+    
   ],},
   {path:'Register',component:RegisterComponent},
   {path:'Login',component:LoginComponent},

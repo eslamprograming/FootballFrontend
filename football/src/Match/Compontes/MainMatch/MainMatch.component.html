@@ -17,35 +17,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr *ngFor="let item of response.values">
       <th scope="row">1</th>
-      <td>League Name</td>
-      <td>Session</td>
-      <td>Start Date</td>
-      <td>End Date</td>
-      <td><button type="button" class="btn btn-success">Details</button></td>
-      <td><button type="button" class="btn btn-primary">Edit</button></td>
-      <td><button type="button" class="btn btn-danger">Delete</button></td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>League Name</td>
-      <td>Session</td>
-      <td>Start Date</td>
-      <td>End Date</td>
-      <td><button type="button" class="btn btn-success">Details</button></td>
-      <td><button type="button" class="btn btn-primary">Edit</button></td>
-      <td><button type="button" class="btn btn-danger">Delete</button></td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>League Name</td>
-      <td>Session</td>
-      <td>Start Date</td>
-      <td>End Date</td>
-      <td><button type="button" class="btn btn-success">Details</button></td>
-      <td><button type="button" class="btn btn-primary">Edit</button></td>
-      <td><button type="button" class="btn btn-danger">Delete</button></td>
+      <td>{{item.homeTeam.teamName}}</td>
+      <td>{{item.awayTeam.teamName}}</td>
+      <td>{{item.matchDate}}</td>
+      <td>{{item.refereeName}}</td>
+      <td><button type="button" class="btn btn-success"(click)="Details(item)">Details</button></td>
+      <td><button type="button" class="btn btn-primary"(click)="Edit(item)">Edit</button></td>
+      <td><button type="button" class="btn btn-danger" (click)="Delete(item.matchID)">Delete</button></td>
     </tr>
   </tbody>
 </table>

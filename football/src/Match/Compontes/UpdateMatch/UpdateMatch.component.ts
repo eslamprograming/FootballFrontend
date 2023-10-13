@@ -4,45 +4,61 @@ import { Router } from '@angular/router';
 import { LeagueService } from 'src/League/Services/League.service';
 import { CreateMatch } from 'src/app/ModelView/CreateMatch';
 import { Response } from 'src/app/ModelView/Response';
+import { UpdateMatch } from 'src/app/ModelView/UpdateMatch';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-CreatMatch',
-  templateUrl: './CreatMatch.component.html',
-  styleUrls: ['./CreatMatch.component.css']
+  selector: 'app-UpdateMatch',
+  templateUrl: './UpdateMatch.component.html',
+  styleUrls: ['./UpdateMatch.component.css']
 })
-export class CreatMatchComponent implements OnInit {
+export class UpdateMatchComponent implements OnInit {
 
-  model: CreateMatch = {} as CreateMatch;
-  responseobj: Response = new Response();
+  model:UpdateMatch=new UpdateMatch();
+  responseobj:Response=new Response();
   responseobj2: Response = new Response();
 
-  selectedLeague: number = 0;
-  selectedTeam: number = 0;
-  selectedTeamAway: number = 0;
-  venueId: number = 0;
+  selectedLeague?: number = this.model.LeagueID;;
+  selectedTeam?: number = this.model.HomeTeamID;
+  selectedTeamAway?: number = this.model.AwayTeamID;
+  venueId?: number = this.model.VenueId;
   teams: any[] = [];
+  model2:any;
 
   constructor(private router: Router, private http: HttpClient, private service: LeagueService) { }
 
   ngOnInit() {
+    try {
+      const storedData = localStorage.getItem("Match");
+
+      if (storedData) {
+        this.model2 = JSON.parse(storedData);
+        this.model.AwayTeamID=this.model2.awayTeamID;
+        this.model.HomeTeamID=this.model2.homeTeamID;
+        this.model.RefereeName=this.model2.refereeName;
+        this.model.Location=this.model2.location;
+        this.model.VenueId=this.model2.venueId;
+        this.model.MatchDate=this.model2.matchDate;
+        this.model.LeagueID=this.model2.leagueID;
+      } else {
+        console.log('Key "Venue" not found in localStorage');
+      }
+    } catch (error) {
+      console.error('Error retrieving object from localStorage:', error);
+    }
     this.fetchLeagueData();
     this.getAllVenue();
   }
 
   onSubmit() {
     this.router.navigate(['/Spaner']);
-    this.model.AwayTeamID = this.selectedTeamAway;
-    this.model.HomeTeamID = this.selectedTeam;
-    this.model.LeagueID = this.selectedLeague;
-    this.model.VenueId = this.venueId;
-    this.service.postData(this.model, 'api/Match/AddNewMatch').subscribe(
+    this.service.putData(this.model,this.model2.matchID,'api/Match/UpdateMatch?MatchId=').subscribe(
       (res) => {
         console.log("Match added successfully:", res);
         this.router.navigate(['/Match']);
       },
       (error) => {
-        this.router.navigate(['/CreateMatch']);
+        this.router.navigate(['/UpdateMatch']);
         console.error("Error adding match:", error);
         alert("error");
       }
@@ -63,7 +79,7 @@ export class CreatMatchComponent implements OnInit {
   }
 
   fetchTeams() {
-    this.http.get<any>(`${environment.apiUrl}api/Team/GetAllTeamInLeague?league=${this.selectedLeague}`).subscribe(
+    this.http.get<any>(`${environment.apiUrl}api/Team/GetAllTeamInLeague?league=${this.model.LeagueID}`).subscribe(
       (response) => {
         this.teams = response.values;
       },

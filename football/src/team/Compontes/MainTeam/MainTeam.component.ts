@@ -2,6 +2,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LeagueService } from 'src/League/Services/League.service';
 import { Response } from 'src/app/ModelView/Response';
 import { environment } from 'src/environments/environment';
@@ -17,7 +18,7 @@ export class MainTeamComponent implements OnInit {
   selectedLeague: number = 0;
   
 
-  constructor(private http: HttpClient, private service: LeagueService) { }
+  constructor(private http: HttpClient, private service: LeagueService,private router:Router) { }
 
   ngOnInit() {
     this.service.GetAll(1,'api/League/GetAllLeague?GroupCount=').subscribe(
@@ -57,8 +58,9 @@ export class MainTeamComponent implements OnInit {
       }
     )
   }
-  Edit(){
-
+  Edit(team:any){
+    localStorage.setItem("team",JSON.stringify(team));
+    this.router.navigate(['/UpdateTeam']);
   }
   Delete(Id:any,endPoints:any){
     var result=confirm("Do You Want To Delete");

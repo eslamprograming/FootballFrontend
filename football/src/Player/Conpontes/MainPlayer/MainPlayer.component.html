@@ -49,7 +49,7 @@
       <td>{{item.nationality}}</td>
       <td>{{item.position}}</td>
       <td><a type="button" class="btn btn-success"(click)="Details(item.playerID,'api/Player/GetPlayeInfo?PlayerId=')">Details</a></td>
-      <td><a type="button" class="btn btn-primary"(click)="Edit()">Edit</a></td>
+      <td><a type="button" class="btn btn-primary"(click)="Edit(item)">Edit</a></td>
       <td><button type="button" class="btn btn-danger"(click)="Delete(item.playerID,'api/Player/DeletePlayer?PlayerId=')">Delete</button></td>
     </tr>
    

@@ -75,8 +75,9 @@ export class MainPlayerComponent implements OnInit {
       }
     )
   }
-  Edit(){
-
+  Edit(item:any){
+    localStorage.setItem("player",JSON.stringify(item));
+    this.router.navigate(['/UpdatePlayer']);
   }
   Delete(Id:any,endPoints:any){
     var result=confirm("Do You Want To Delete");
